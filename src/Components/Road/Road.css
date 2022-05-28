@@ -1,0 +1,325 @@
+.single-road-map-item,
+.roadmap__timeline-wrapper {
+    /* position: relative; */
+    width: auto !important;
+}
+
+.hek{
+    margin-bottom: 2.5rem;
+}
+
+.hala{
+    background-image: url("../../assets/blue.png");
+    height: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   padding-top: 50px;
+}
+
+.single-road-map-item::after {
+    left: -56px;
+}
+
+.single-road-map-item {
+    /* -webkit-margin-start: 20px; */
+    margin-inline-start: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.30);
+}
+
+
+.single-roadmap {
+    /* padding: 30px; */
+    
+}
+
+.rodmap-title h4 {
+    color: #fff;
+}
+
+.single-road-map-item:not(:last-child) {
+    /* -webkit-margin-after: 50px; */
+    /* margin-block-end: 50px; */
+}
+/* 
+.div_5{
+    padding-top: 17px !important;
+    padding-bottom: 17px !important;
+}
+
+.div_6{
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+.div_1{
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.div_2{
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+}
+
+.div_3{
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+}
+
+.div_4{
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+} */
+
+.single-roadmap {
+    background-image: -o-linear-gradient(right bottom, #fd562a, rgba(211, 40, 83, 0.70), rgba(148, 31, 95, 0.80), #4f2155, #161634);
+    background-image: -webkit-gradient(linear, right bottom, left top, from(#fd562a), color-stop(rgba(211, 40, 83, 0.70)), color-stop(rgba(148, 31, 95, 0.80)), color-stop(#4f2155), to(#161634));
+    background-image: linear-gradient(to left top, #fd562a, rgba(211, 40, 83, 0.70), rgba(148, 31, 95, 0.80), #4f2155, #161634);
+    -webkit-box-shadow: 10px 10px #fd562a;
+    box-shadow: 10px 10px #fd562a;
+}
+
+.single-road-map-item.two::after {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+
+@media screen and (max-width:480px) {
+    .hala{
+        height: auto !important;
+    }
+
+    .hek{
+        margin-bottom: 0rem;
+    }
+
+    .single-road-map-item{
+        margin-bottom: 3rem;
+        /* margin-right: 4rem; */
+        align-items: center;
+        float: left;
+       
+    }
+
+    .single-road-map-item{
+        margin-left: 3rem !important;
+    }
+
+    .row_hwewe{
+        /* padding: -5rem !important; */
+        margin-left: -4rem !important;
+    }
+    .single-roadmap {
+     padding: 0 !important;
+       
+        box-shadow: 5px 5px #fd562a;
+    }
+
+}
+
+
+@media (min-width:480px) and (max-width:800px) {
+    
+    .hala{
+        height: auto !important;
+    }
+
+    .hek{
+        margin-bottom: 0rem;
+    }
+
+    .single-road-map-item{
+        margin-bottom: 3rem;
+        margin-right: 4rem;
+        align-items: center;
+        float: left;
+        width: 80% !important;
+       
+    }
+
+    .div_5{
+        padding-top: 19px !important;
+        padding-bottom: 19px !important;
+    }
+    
+    .div_6{
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
+    }
+    
+    .div_1{
+        padding-top: 18px !important;
+        padding-bottom: 18px !important;
+    }
+    
+    .div_2{
+        padding-top: 19px !important;
+        padding-bottom: 19px !important;
+    }
+
+    .div_3{
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .div_4{
+        padding-top: 26px !important;
+        padding-bottom: 26px !important;
+    }
+  
+}
+
+
+@media (min-width:800px) and (max-width:1024px) {
+    
+    .hala{
+        height: auto !important;
+    }
+
+    .hek{
+        margin-bottom: 0rem;
+    }
+
+    .single-road-map-item{
+        margin-bottom: 3rem;
+        margin-right: 4rem;
+        align-items: center;
+        float: left;
+       
+    }
+
+    .div_5{
+        padding-top: 29px !important;
+        padding-bottom: 29px !important;
+    }
+    
+    .div_6{
+        padding-top: 9px !important;
+        padding-bottom: 9px !important;
+    }
+    
+    .div_1{
+        padding-top: 17px !important;
+        padding-bottom: 17px !important;
+    }
+
+    .div_2{
+        padding-top: 17px !important;
+        padding-bottom: 17px !important;
+    }
+
+    .div_3{
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    .div_4{
+        padding-top: 25px !important;
+        padding-bottom: 25px !important;
+    }
+
+}
+
+
+@media (min-width:1024px) and (max-width:1440px) {
+    
+    .hala{
+        height: auto !important;
+    }
+
+    .hek{
+        margin-bottom: 0rem;
+    }
+
+    .single-road-map-item{
+        margin-bottom: 3rem;
+        margin-right: 4rem;
+        align-items: center;
+        float: left;
+       
+    }
+
+    .div_5{
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+    
+    .div_6{
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+    }
+    
+    .div_1{
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .div_2{
+        padding-top: 19px !important;
+        padding-bottom: 19px !important;
+    }
+
+    .div_3{
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    .div_4{
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+    }
+
+}
+
+
+@media (min-width:1440px) and (max-width:4000px) {
+    
+    .hala{
+        height: auto !important;
+    }
+
+    .hek{
+        margin-bottom: 0rem;
+    }
+
+    .single-road-map-item{
+        margin-bottom: 3rem;
+        margin-right: 4rem;
+        align-items: center;
+        float: left;
+       
+    }
+
+    .div_5{
+        padding-top: 13px !important;
+        padding-bottom: 13px !important;
+    }
+    
+    .div_6{
+        padding-top: 23px !important;
+        padding-bottom: 23px !important;
+    }
+    
+    .div_1{
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .div_2{
+        padding-top: 18px !important;
+        padding-bottom: 18px !important;
+    }
+
+    .div_3{
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+    }
+
+    .div_4{
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+    }
+
+}

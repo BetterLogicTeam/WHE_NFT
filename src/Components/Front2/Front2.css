@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Lobster&family=Oxanium:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Lobster&family=Oxanium:wght@500&family=Roboto&display=swap');
+
+
+
+.body1{
+    /* background-color: rgb(6,8,38)!important; */
+    border-radius: 8rem;
+}
+
+
+
+.spec{
+    background-color: rgb(6,8,38);
+    color: white;
+    height: 60vh !important;
+}
+
+.spec2 {
+    background-color: rgb(22,22,52);
+    height: 50vh !important;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 4rem;
+}
+
+.spec2 p{
+    font-size: 1.5rem !important;
+}
+
+.spec2 h1{
+    font-size: 4rem !important;
+}
+
+.spec2 h5{
+    font-size: 2rem !important;
+    color: rgb(253,86,42)
+}
+
+.wallet-content-text p{
+  font-size: 1rem !important;
+}
+
+
+       
+          
+
+@media screen and (max-width:480px) {
+  
+  .spec{
+    height: 90vh;
+  }
+
+  .spec2{
+    height: 80vh;
+  }
+
+  /* .kami{
+    line-height: 1rem !important;
+    font-size: 1rem !important;
+  } */
+
+  .benefits{
+    margin-bottom: -2rem !important;
+  }
+
+  /* .wallet-area{
+    height: 280vh !important;
+  } */
+
+  .spec2 h5{
+    font-size: 1.5rem;
+  }
+
+  .spec2 h1{
+    font-size: 2.5rem;
+  }
+
+  .heading-title{
+    font-size: 1.7rem !important;
+  }
+
+  .spec2 p{
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+  
+.wallet-content-text a{
+  font-size: 1.7rem !important;
+}
+}
+
+@media (min-width:480px) and (max-width:768px) {
+  
+  .spec{
+    height: 80vh;
+  }
+
+  .spec2{
+    height: 70vh;
+  }
+
+  .spec2 h5{
+    font-size: 1.5rem;
+  }
+
+  .spec2 h1{
+    font-size: 2.5rem;
+  }
+
+  .spec2 p{
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+}      
+
+
+@media (min-width:768px) and (max-width:1024px) {
+  
+  .spec{
+    height: 80vh;
+  }
+
+  .spec2{
+    height: 70vh;
+  }
+
+  .spec2 h5{
+    font-size: 1.5rem;
+  }
+
+  .spec2 h1{
+    font-size: 2.5rem;
+  }
+
+  .spec2 p{
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+}      
+
+
+@media (min-width:1024px) and (max-width:1440px) {
+  
+  .spec{
+    height: 80vh;
+  }
+
+  .spec2{
+    height: 70vh;
+  }
+
+  .spec2 h5{
+    font-size: 1.5rem;
+  }
+
+  .spec2 h1{
+    font-size: 2.5rem;
+  }
+
+  .spec2 p{
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+}      
+
+
+@media (min-width:1440px) and (max-width:4000px) {
+  
+  .spec{
+    height: 80vh;
+  }
+
+  .spec2{
+    height: 70vh;
+  }
+
+  .spec2 h5{
+    font-size: 1.8rem;
+  }
+
+  .spec2 h1{
+    font-size: 2.8rem;
+  }
+
+  .spec2 p{
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+}
+} 
+
+
+
+.breadcrumb-area{
+  background-image: url("../../assets/bg-shape-2.png");
+  height: 350px;
+}
+.breadcrumb-title {
+  padding-top: 45px;
+}
+.breadcrumb-title h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-family: 'Roboto', sans-serif;
+  color: #fd562a;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+}
+.breadcrumb-list li {
+    display: inline-block;
+    margin: 0 5px;
+}

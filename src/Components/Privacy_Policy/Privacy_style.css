@@ -1,0 +1,14 @@
+
+.main_div_privacy{
+    background-color: rgb(6,8,38);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto !important;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+.ul_class li{
+    list-style:disc !important;
+}
