@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+import React, { useState } from "react";
 import "./App.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -31,12 +31,21 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import Terms from "./Components/Terms/Terms";
 import Privacy_Policy from "./Components/Privacy_Policy/Privacy_Policy";
+import ModelOpen from "./Components/Mint/ModelOpen";
+
 
 function App() {
+const [modalShow, setModalShow] = useState(false);
+function value(myvalue){
+  console.log('my value is',myvalue)
+
+}
+
   return (
     <div className="App">
       <BrowserRouter>
         <Header/>
+        <ModelOpen setModalShow={setModalShow} modalShow={modalShow} value={value} />
         <ToastContainer />
         <Routes>
           <Route exact path="/" element={<Index_main />} />
@@ -44,9 +53,10 @@ function App() {
           <Route exact path="/Collection_main" element={<Collection_main />} />
           <Route exact path="/Benefits_main" element={<Benefits_main />} />
           <Route exact path="/Road_main" element={<Road_main />} />
-          <Route exact path="/Mint_main" element={<Mint_main />} />
+          <Route exact path="/Mint_main" element={<Mint_main setModalShow={setModalShow}   />} />
           <Route exact path="/Terms_main" element={<Terms />} />
           <Route exact path="/Privacy_Policy" element={<Privacy_Policy />} />
+
 
         </Routes>
         <Footer />
