@@ -81,6 +81,7 @@ function Mint() {
                 let res = await axios.get(`https://whenftapi.herokuapp.com/checkuser?id=${inputdatahere}`)
                 // console.log("resdatahere", res.data);
                 res = res.data.data;
+                
                 if (res == 1) {
                     try {
 
@@ -661,7 +662,7 @@ function Mint() {
             getMydata();
 
         }, 10000);
-        // getMydata();
+      
 
     }, [])
 
@@ -732,7 +733,9 @@ function Mint() {
 
 
                 <div className="container">
+                    
                     <h1>MINT</h1>
+                   
 
                     <div className="row mt-5">
                         <div className="">
@@ -750,21 +753,23 @@ function Mint() {
                                                     <input className="count-form" type="text" value={value} onChange={(e) => setValue(e.target.value)} id="qtyBox" />
 
                                                 </div>
+                                                
                                                 <div className="top_div_here">
                                                     <div className="btn-area1 mt-5">
-                                                        <a class="btn btn-box " href="#" onClick={() => Sponser()}>
+                                                        <a class="btn btn-box "  onClick={() => Sponser()}>
                                                             <span className="">{btnOne}</span>
                                                         </a>
+                                                       
                                                         <p className="fs-4">Price : {mintPriceBnb} BNB</p>
                                                     </div>
                                                     <div className="btn-area1 mt-5">
-                                                        <a class="btn btn-box" href="#" onClick={() => Sponser2()}>
+                                                        <a class="btn btn-box"  onClick={() => Sponser2()}>
                                                             {btnTwo}
                                                         </a>
                                                         <p className="fs-4">Price : {mintPriceWire} WHE</p>
                                                     </div>
                                                     <div className="btn-area1 mt-5">
-                                                        <a class="btn btn-box" href="#" onClick={() => Sponser3()}>
+                                                        <a class="btn btn-box"  onClick={() => Sponser3()}>
                                                             {btnThree}
                                                         </a>
                                                         <p className="fs-4">Price : {mintPriceBUSD} BUSD</p>
