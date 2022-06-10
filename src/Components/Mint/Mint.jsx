@@ -136,11 +136,11 @@ function Mint() {
 
                                             // let usid=
 
-
-                                            totalMintingPriceBNB = web3.utils.toWei(totalMintingPriceBNB.toString())
+                                            let BusdPrice = await nftContractOf.methods.WhitelistMintingPricein_MATIC().call();
+                                            BusdPrice = BusdPrice*value;
                                             let hash = await nftContractOf.methods.mint_with_MATIC(value).send({
                                                 from: acc,
-                                                value: totalMintingPriceBNB.toString()
+                                                value: BusdPrice.toString()
 
                                             })
                                             toast.success("Transaction Confirmed")
@@ -179,11 +179,11 @@ function Mint() {
                                 }
                             }
                             else {
-                                let BusdPrice = await nftContractOf.methods.WhitelistMintingPricein_MATIC().call();
+                                
 
                                 let hash = await nftContractOf.methods.mint_with_MATIC(value).send({
                                     from: acc,
-                                    value: value * BusdPrice.toString()
+                                    value: totalMintingPriceBNB.toString()
                                 })
                                 // console.log("hash", hash.transactionHash);
                                 hash = hash.transactionHash
@@ -297,13 +297,16 @@ function Mint() {
                                                 // console.log("Minting Value= ", value);
                                                 // console.log("Minting totalMintingPriceWire= ", totalMintingPriceWire);
 
-                                                totalMintingPriceWire = web3.utils.toWei(totalMintingPriceWire.toString())
-                                                await wireContractOf.methods.approve(wireNftContractAddress, totalMintingPriceWire).send({
+                                                let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_MMX().call();
+                                                let z = value * BusdPrice;
+
+
+                                                await wireContractOf.methods.approve(wireNftContractAddress, z).send({
                                                     from: acc
                                                 })
                                                 toast.success("Transaction Confirmed")
                                                 setButtonTwo("Please Wait for Second Confirmation")
-                                                let hash = await nftContractOf.methods.mint_with_MMX(value, totalMintingPriceWire.toString()).send({
+                                                let hash = await nftContractOf.methods.mint_with_MMX(value, z.toString()).send({
                                                     from: acc,
                                                 })
                                                 toast.success("Transaction Succefful")
@@ -314,7 +317,7 @@ function Mint() {
                                                     "uid": inputdatahere,
                                                     "address": acc,
                                                     "nft": value,
-                                                    "token": totalMintingPriceWire,
+                                                    "token": z,
                                                     "txn": hash
                                                 })
                                                 toast.success("Transaction Confirmed")
@@ -350,17 +353,15 @@ function Mint() {
                             }
                             else {
 
-                                let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_MMX().call();
+
                                 totalMintingPriceWire = web3.utils.toWei(totalMintingPriceWire.toString())
                                 await wireContractOf.methods.approve(wireNftContractAddress, totalMintingPriceWire).send({
                                     from: acc
                                 })
-                                let a = web3.utils.fromWei(BusdPrice);
-                                a = parseFloat(a)
-                                let b = a * value;
-                                let c = web3.utils.toWei(b.toString());
 
-                                let hash = await nftContractOf.methods.mint_with_MMX(value, c).send({
+
+
+                                let hash = await nftContractOf.methods.mint_with_MMX(value, totalMintingPriceWire).send({
                                     from: acc,
                                 })
                                 toast.success("Transaction Confirmed")
@@ -477,14 +478,20 @@ function Mint() {
                                             // if (parseFloat(userBusdBalance) >= totalMintingPriceBusd) {
                                             // console.log("Minting Value= ", value);
                                             // console.log("Minting totalMintingPriceWire= ", totalMintingPriceBusd);
+                                            let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_BUSD().call();
+
+                                            
+                                            BusdPrice = parseFloat(BusdPrice)
+                                            let b = BusdPrice * value;
+                                            
 
                                             totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
-                                            await busdContractOf.methods.approve(wireNftContractAddress, totalMintingPriceBusd).send({
+                                            await busdContractOf.methods.approve(wireNftContractAddress, b).send({
                                                 from: acc
                                             })
                                             setButtonThree("Please Wait For Second Confirmation")
                                             toast.success("Transaction Confirmed")
-                                            let hash = await nftContractOf.methods.mint_with_BUSD(value, totalMintingPriceBusd.toString()).send({
+                                            let hash = await nftContractOf.methods.mint_with_BUSD(value, b.toString()).send({
                                                 from: acc,
                                             })
                                             toast.success("Transaction Confirmed")
@@ -530,16 +537,12 @@ function Mint() {
                                 }
                             }
                             else {
-                                let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_BUSD().call();
                                 totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
                                 await busdContractOf.methods.approve(wireNftContractAddress, totalMintingPriceBusd).send({
                                     from: acc
                                 })
-                                let a = web3.utils.fromWei(BusdPrice);
-                                a = parseFloat(a)
-                                let b = a * value;
-                                let c = web3.utils.toWei(b.toString());
-                                let hash = await nftContractOf.methods.mint_with_BUSD(value, c).send({
+
+                                let hash = await nftContractOf.methods.mint_with_BUSD(value, totalMintingPriceBusd).send({
                                     from: acc,
                                 })
                                 toast.success("Transaction Confirmed")
@@ -611,7 +614,7 @@ function Mint() {
             mintingBusdPrice = parseFloat(mintingBusdPrice)
             setMintPriceBUSD(mintingBusdPrice)
 
-          
+
             let mintingWirePrice = await nftContractOf.methods.finalwhe().call()
             mintingWirePrice = mintingWirePrice[1]
             mintingWirePrice = web3.utils.fromWei(mintingWirePrice)
@@ -622,11 +625,11 @@ function Mint() {
             mintingbnbPrice = mintingbnbPrice[0]
 
             mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
-            console.log("mintingbnbPrice",mintingbnbPrice);
+            console.log("mintingbnbPrice", mintingbnbPrice);
             mintingbnbPrice = parseFloat(mintingbnbPrice).toFixed(4)
             setMintPriceBnb(mintingbnbPrice)
 
-          
+
 
 
 
@@ -641,7 +644,7 @@ function Mint() {
 
 
         } catch (e) {
-            console.log("Error while getting minting Price",e);
+            console.log("Error while getting minting Price", e);
         }
 
     }
@@ -673,7 +676,7 @@ function Mint() {
 
     useEffect(() => {
         setInterval(() => {
-            
+
             getMydata();
         }, 10000);
 
