@@ -81,7 +81,7 @@ function Mint() {
                 let res = await axios.get(`https://whenftapi.herokuapp.com/checkuser?id=${inputdatahere}`)
                 // console.log("resdatahere", res.data);
                 res = res.data.data;
-                
+
                 if (res == 1) {
                     try {
 
@@ -104,11 +104,14 @@ function Mint() {
                             let ttlSupply = await nftContractOf.methods.totalSupply().call();
                             let paused = await nftContractOf.methods.paused().call();
                             let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                            let mintingbnbPrice = await nftContractOf.methods.MinitngPricein_MATIC().call()
+                            let mintingbnbPrice = await nftContractOf.methods.finalwhe().call()
+
+                            console.log("finalwhe", mintingbnbPrice[0]);
                             // console.log("jjjjj", mintingbnbPrice);
+                            mintingbnbPrice = mintingbnbPrice[0]
                             mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
                             mintingbnbPrice = parseFloat(mintingbnbPrice)
-                            setMintPriceBnb(mintingbnbPrice)
+                            // setMintPriceBnb(mintingbnbPrice)
                             let totalMintingPriceBNB = value * mintingbnbPrice
                             let getdata = await axios.get("https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT")
                             // console.log("data_chack_here", getdata.data.price);
@@ -231,7 +234,7 @@ function Mint() {
     const myMintWire = async () => {
 
         setShowModal2(false)
-      
+
 
 
         let acc = await loadWeb3();
@@ -268,10 +271,12 @@ function Mint() {
                             let ttlSupply = await nftContractOf.methods.totalSupply().call();
                             let paused = await nftContractOf.methods.paused().call();
                             let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                            let mintingWirePrice = await nftContractOf.methods.MinitngPricein_MMX().call()
+                            let mintingWirePrice = await nftContractOf.methods.finalwhe().call()
+                            mintingWirePrice = mintingWirePrice[1]
                             mintingWirePrice = web3.utils.fromWei(mintingWirePrice);
+                            console.log("mintingWirePrice", mintingWirePrice);
                             mintingWirePrice = parseFloat(mintingWirePrice)
-                            setmintPriceWire(mintingWirePrice);
+                            // setmintPriceWire(mintingWirePrice);
                             let totalMintingPriceWire = value * mintingWirePrice
                             // console.log("maxSupply", maxSupply);
                             // console.log("ttlSupply", maxLimitprTransaction);
@@ -347,7 +352,7 @@ function Mint() {
 
                                 let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_MMX().call();
                                 totalMintingPriceWire = web3.utils.toWei(totalMintingPriceWire.toString())
-                                  await wireContractOf.methods.approve(wireNftContractAddress, totalMintingPriceWire).send({
+                                await wireContractOf.methods.approve(wireNftContractAddress, totalMintingPriceWire).send({
                                     from: acc
                                 })
                                 let a = web3.utils.fromWei(BusdPrice);
@@ -355,12 +360,12 @@ function Mint() {
                                 let b = a * value;
                                 let c = web3.utils.toWei(b.toString());
 
-                              let  hash= await nftContractOf.methods.mint_with_MMX(value, c).send({
+                                let hash = await nftContractOf.methods.mint_with_MMX(value, c).send({
                                     from: acc,
                                 })
                                 toast.success("Transaction Confirmed")
 
-                            hash = hash.transactionHash
+                                hash = hash.transactionHash
                                 let postapi = await axios.post('https://whenftapi.herokuapp.com/buynfttoken', {
                                     "uid": inputdatahere,
                                     "address": acc,
@@ -448,10 +453,11 @@ function Mint() {
                             let ttlSupply = await nftContractOf.methods.totalSupply().call();
                             let paused = await nftContractOf.methods.paused().call();
                             let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                            let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_BUSD().call()
-                            mintingBusdPrice = web3.utils.fromWei(mintingBusdPrice);
+                            let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_MMX().call()
+
+                            mintingBusdPrice = web3.utils.toWei(mintingBusdPrice);
                             mintingBusdPrice = parseFloat(mintingBusdPrice)
-                            setMintPriceBUSD(mintingBusdPrice)
+                            // setMintPriceBUSD(mintingBusdPrice)
                             let totalMintingPriceBusd = value * mintingBusdPrice
                             // console.log("maxSupply", maxSupply);
                             // console.log("ttlSupply", maxLimitprTransaction);
@@ -473,15 +479,15 @@ function Mint() {
                                             // console.log("Minting totalMintingPriceWire= ", totalMintingPriceBusd);
 
                                             totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
-                                             await busdContractOf.methods.approve(wireNftContractAddress, totalMintingPriceBusd).send({
+                                            await busdContractOf.methods.approve(wireNftContractAddress, totalMintingPriceBusd).send({
                                                 from: acc
                                             })
                                             setButtonThree("Please Wait For Second Confirmation")
                                             toast.success("Transaction Confirmed")
-                                           let hash= await nftContractOf.methods.mint_with_BUSD(value, totalMintingPriceBusd.toString()).send({
+                                            let hash = await nftContractOf.methods.mint_with_BUSD(value, totalMintingPriceBusd.toString()).send({
                                                 from: acc,
                                             })
-                                toast.success("Transaction Confirmed")
+                                            toast.success("Transaction Confirmed")
 
 
                                             hash = hash.transactionHash
@@ -600,20 +606,28 @@ function Mint() {
 
             const web3 = window.web3;
             let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-            let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_BUSD().call()
-            mintingBusdPrice = web3.utils.fromWei(mintingBusdPrice);
+            let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_MMX().call()
+            // mintingBusdPrice = web3.utils.fromWei(mintingBusdPrice);
             mintingBusdPrice = parseFloat(mintingBusdPrice)
             setMintPriceBUSD(mintingBusdPrice)
 
-            let mintingWirePrice = await nftContractOf.methods.MinitngPricein_MMX().call()
-            mintingWirePrice = web3.utils.fromWei(mintingWirePrice);
-            mintingWirePrice = parseFloat(mintingWirePrice)
+          
+            let mintingWirePrice = await nftContractOf.methods.finalwhe().call()
+            mintingWirePrice = mintingWirePrice[1]
+            mintingWirePrice = web3.utils.fromWei(mintingWirePrice)
+            mintingWirePrice = parseFloat(mintingWirePrice).toFixed(1)
             setmintPriceWire(mintingWirePrice);
 
-            let mintingbnbPrice = await nftContractOf.methods.MinitngPricein_MATIC().call()
+            let mintingbnbPrice = await nftContractOf.methods.finalwhe().call()
+            mintingbnbPrice = mintingbnbPrice[0]
+
             mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
-            mintingbnbPrice = parseFloat(mintingbnbPrice)
+            console.log("mintingbnbPrice",mintingbnbPrice);
+            mintingbnbPrice = parseFloat(mintingbnbPrice).toFixed(4)
             setMintPriceBnb(mintingbnbPrice)
+
+          
+
 
 
             //   let livebnbprice = await ("https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT")
@@ -627,7 +641,7 @@ function Mint() {
 
 
         } catch (e) {
-            console.log("Error while getting minting Price");
+            console.log("Error while getting minting Price",e);
         }
 
     }
@@ -659,10 +673,10 @@ function Mint() {
 
     useEffect(() => {
         setInterval(() => {
+            
             getMydata();
-
         }, 10000);
-      
+
 
     }, [])
 
@@ -687,7 +701,7 @@ function Mint() {
 
 
                 </Modal.Body>
-                {/* / */}
+
             </Modal>
             <Modal
                 show={showModal2}
@@ -705,7 +719,7 @@ function Mint() {
 
 
                 </Modal.Body>
-                {/* / */}
+
             </Modal>
             <Modal
                 show={showModal3}
@@ -723,7 +737,7 @@ function Mint() {
 
 
                 </Modal.Body>
-                {/* / */}
+
             </Modal>
             <div className="mint">
                 {/* <ModelOpen showModal={showModal} setShowModal={setShowModal} subMitFunction={subMitFunction} /> */}
@@ -733,9 +747,9 @@ function Mint() {
 
 
                 <div className="container">
-                    
+
                     <h1>MINT</h1>
-                   
+
 
                     <div className="row mt-5">
                         <div className="">
@@ -753,23 +767,23 @@ function Mint() {
                                                     <input className="count-form" type="text" value={value} onChange={(e) => setValue(e.target.value)} id="qtyBox" />
 
                                                 </div>
-                                                
+
                                                 <div className="top_div_here">
                                                     <div className="btn-area1 mt-5">
-                                                        <a class="btn btn-box "  onClick={() => Sponser()}>
+                                                        <a class="btn btn-box " onClick={() => Sponser()}>
                                                             <span className="">{btnOne}</span>
                                                         </a>
-                                                       
+
                                                         <p className="fs-4">Price : {mintPriceBnb} BNB</p>
                                                     </div>
                                                     <div className="btn-area1 mt-5">
-                                                        <a class="btn btn-box"  onClick={() => Sponser2()}>
+                                                        <a class="btn btn-box" onClick={() => Sponser2()}>
                                                             {btnTwo}
                                                         </a>
                                                         <p className="fs-4">Price : {mintPriceWire} WHE</p>
                                                     </div>
                                                     <div className="btn-area1 mt-5">
-                                                        <a class="btn btn-box"  onClick={() => Sponser3()}>
+                                                        <a class="btn btn-box" onClick={() => Sponser3()}>
                                                             {btnThree}
                                                         </a>
                                                         <p className="fs-4">Price : {mintPriceBUSD} BUSD</p>
