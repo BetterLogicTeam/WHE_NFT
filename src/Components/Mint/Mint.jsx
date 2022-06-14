@@ -11,18 +11,6 @@ import Modal from 'react-bootstrap/Modal'
 import axios from "axios";
 import ModelOpen from "./ModelOpen"
 
-
-
-
-
-
-
-
-
-
-
-
-
 function Mint() {
 
 
