@@ -86,15 +86,17 @@ export default function Front4() {
       let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
       let simplleArray = [];
       let walletOfOwner = await nftContractOf.methods.walletOfOwner(acc).call()
+      // walletOfOwner=walletOfOwner[2];
+
       let walletLength = walletOfOwner.length
       setMyWalletLength(walletLength)
       console.log("walletOfOwner", walletLength);
       for (let i =1; i<=walletLength; i++) {
         
         try {
-          let res = await axios.get(`https://gateway.pinata.cloud/ipfs/QmWC48u2Rj84M9ufzFFxSD41AQmq2QFMUhFhiu7aT2DFq8/${i}.png`)
+          let res = await axios.get(`https://gateway.pinata.cloud/ipfs/QmWC48u2Rj84M9ufzFFxSD41AQmq2QFMUhFhiu7aT2DFq8/${walletOfOwner[i]}.png`)
           // let res = await axios.get(`/config/${walletOfOwner[i]}.json`)
-          let imageUrl = res.config.url;
+          let imageUrl = res  ;
           console.log("check",res);
           let dna = res.data.dna
           simplleArray = [...simplleArray, { imageUrl: imageUrl, num: dna }]
@@ -152,7 +154,7 @@ export default function Front4() {
                         </div>
 
                         <div class="collection-text home-2 text-center">
-                          <a href="#">WHE NFT {idex}</a>
+                          <a href="#">WHE NFT </a>
                         
                         </div>
                       </div>

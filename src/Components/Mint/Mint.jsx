@@ -707,7 +707,7 @@ function Mint() {
 
                 <Modal.Body className='model_bg'>
                     <h3>Sponser</h3>
-                    <p>Please Enter Sponser Id here bnb</p>
+                    <p>Please Enter Sponser Id here BNB</p>
                     <input type="text" onChange={(e) => setinputdatahere(e.target.value)} value={inputdatahere} className="form-control" />
                     <button onClick={() => myMintBNB()} className=" btn modelbtnhere mt-4" >Submit</button>
 
@@ -725,7 +725,7 @@ function Mint() {
 
                 <Modal.Body className='model_bg'>
                     <h3>Sponser</h3>
-                    <p>Please Enter Sponser Id here wire</p>
+                    <p>Please Enter Sponser Id here WHE</p>
                     <input type="text" onChange={(e) => setinputdatahere(e.target.value)} value={inputdatahere} className="form-control" />
                     <button onClick={() => myMintWire()} className=" btn modelbtnhere mt-4" >Submit</button>
 
@@ -743,7 +743,7 @@ function Mint() {
 
                 <Modal.Body className='model_bg'>
                     <h3>Sponser</h3>
-                    <p>Please Enter Sponser Id here busfd</p>
+                    <p>Please Enter Sponser Id here BUSD</p>
                     <input type="text" onChange={(e) => setinputdatahere(e.target.value)} value={inputdatahere} className="form-control" />
                     <button onClick={() => myMintBUSD()} className=" btn modelbtnhere mt-4" >Submit</button>
 

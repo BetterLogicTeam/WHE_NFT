@@ -2,7 +2,7 @@ import Web3 from "web3";
 let isItConnected = false;
 const networks = {
   bsc: {
-    chainId: `0x${Number(80001).toString(16)}`,
+    chainId: `0x${Number(56).toString(16)}`,
     chainName: "Binance smart chain",
     nativeCurrency: {
       name: "BSC",
@@ -71,7 +71,7 @@ export const loadWeb3 = async () => {
       await window.web3.eth.getChainId((err, netId) => {
         // console.log("networkId==>", netId);
         switch (netId.toString()) {
-          case "80001":
+          case "56":
             isItConnected = true;
             break;
           default:
