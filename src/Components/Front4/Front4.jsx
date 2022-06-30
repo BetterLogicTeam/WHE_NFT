@@ -90,15 +90,16 @@ export default function Front4() {
 
       let walletLength = walletOfOwner.length
       setMyWalletLength(walletLength)
-      console.log("walletOfOwner", walletLength);
-      for (let i =1; i<=walletLength; i++) {
+      console.log("walletOfOwner", walletOfOwner);
+      for (let i =0; i<walletLength; i++) {
+        console.log("i",i);
         
         try {
           let res = await axios.get(`https://gateway.pinata.cloud/ipfs/QmWC48u2Rj84M9ufzFFxSD41AQmq2QFMUhFhiu7aT2DFq8/${walletOfOwner[i]}.png`)
           // let res = await axios.get(`/config/${walletOfOwner[i]}.json`)
-          let imageUrl = res  ;
+          let imageUrl = res.config.url  ;
           console.log("check",res);
-          let dna = res.data.dna
+          let dna = walletOfOwner[i]
           simplleArray = [...simplleArray, { imageUrl: imageUrl, num: dna }]
           setImageArray(simplleArray);
         } catch (e) {
@@ -154,7 +155,7 @@ export default function Front4() {
                         </div>
 
                         <div class="collection-text home-2 text-center">
-                          <a href="#">WHE NFT </a>
+                          <a href="#">WHE NFT {items.num} </a>
                         
                         </div>
                       </div>
