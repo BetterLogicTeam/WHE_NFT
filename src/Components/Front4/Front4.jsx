@@ -161,8 +161,6 @@ export default function Front4() {
                       </div>
                     </div>
                     
-                    
-                  
                 )
               })
             }

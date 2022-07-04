@@ -133,7 +133,7 @@
   background-color: #060826;
   /* border-radius: 15px; */
   /* padding: 20px 20px; */
- width: 400px;
+ width: 100%;
 
   margin-bottom: 10px;
   position: relative;
@@ -150,7 +150,7 @@
 }
 .home-2 img {
   border-radius: 20px 20px 0 0;
- width: 400px;
+ width: 100%;
 }
 
 .collection-text {
