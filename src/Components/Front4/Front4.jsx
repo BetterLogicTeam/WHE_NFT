@@ -95,7 +95,7 @@ export default function Front4() {
         console.log("i",i);
         
         try {
-          let res = await axios.get(`https://gateway.pinata.cloud/ipfs/QmWC48u2Rj84M9ufzFFxSD41AQmq2QFMUhFhiu7aT2DFq8/${walletOfOwner[i]}.png`)
+          let res = await axios.get(`https://gateway.pinata.cloud/ipfs/QmZ2NEVJwa3hP25MsfxPEPk3sxG6Dwwhb7TqsLaw7yXrvn/${walletOfOwner[i]}.png`)
           // let res = await axios.get(`/config/${walletOfOwner[i]}.json`)
           let imageUrl = res.config.url  ;
           console.log("check",res);
