@@ -125,7 +125,7 @@ export default function Front4() {
     allImagesNfts()
     getAccount();
 
-  }, []);
+  }, [imageArray]);
   return (
     <div>
 
