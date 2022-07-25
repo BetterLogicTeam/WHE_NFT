@@ -32,6 +32,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Terms from "./Components/Terms/Terms";
 import Privacy_Policy from "./Components/Privacy_Policy/Privacy_Policy";
 import ModelOpen from "./Components/Mint/ModelOpen";
+import Mint_wirh_500 from "./Components/Mint/Mint_wirh_500";
 
 
 function App() {
@@ -54,6 +55,8 @@ function value(myvalue){
           <Route exact path="/Benefits_main" element={<Benefits_main />} />
           <Route exact path="/Road_main" element={<Road_main />} />
           <Route exact path="/Mint_main" element={<Mint_main setModalShow={setModalShow}   />} />
+          <Route exact path="/Mint_wirh_500" element={<Mint_wirh_500 setModalShow={setModalShow}   />} />
+
           <Route exact path="/Terms_main" element={<Terms />} />
           <Route exact path="/Privacy_Policy" element={<Privacy_Policy />} />
 

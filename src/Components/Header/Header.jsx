@@ -62,7 +62,152 @@ export default function Header() {
                      <Link to="/Road_main" className="link_text" >Roadmap</Link>
                   </Nav.Link>
 
-                  <Link to="/Mint_main" className="link_text" ><button className="btn btna_navbar_here">Mint</button></Link>
+                  {/* <Link to="/Mint_main" className="link_text" ><button className="btn btna_navbar_here">Mint</button></Link> */}
+                  <div class="dropdown ms-2 ">
+                  <button
+                    class="btn btn-secondary dropdown-toggle select_main"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Mint
+                  </button>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+
+                    <li>
+                      <a class="dropdown-item">
+                       
+                        <Link to="Mint_main" className="text_style">
+                         
+                          
+                          Mint With 100 USD
+                        </Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item">
+                       
+                        <Link to="Mint_wirh_500" className="text_style">
+                         
+                          
+                          Mint With 500 USD
+                        </Link>
+                      </a>
+                    </li>
+                    {/* <li>
+                      <a class="dropdown-item">
+                        {" "}
+                        <Link to="Mint_With_200" className="text-d">
+                          {" "}
+                          
+                          Mint With 200 USD
+                        </Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item">
+                        {" "}
+                        <Link to="Mint_With_300" className="text-d">
+                          {" "}
+                          
+                          Mint With 300 USD
+                        </Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item">
+                        {" "}
+                        <Link to="Mint_With_400" className="text-d">
+                          {" "}
+                          
+                          Mint With 400 USD
+                        </Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item">
+                        {" "}
+                        <Link to="Mint_With_500" className="text-d">
+                          {" "}
+                          
+                          Mint With 500 USD
+                        </Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item">
+                        {" "}
+                        <Link to="Mint_With_1000" className="text-d">
+                          {" "}
+                          
+                          Mint With 1000 USD
+                        </Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item">
+                        {" "}
+                        <Link to="Mint_With_2000" className="text-d">
+                          {" "}
+                          
+                          Mint With 2000 USD
+                        </Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item">
+                        {" "}
+                        <Link to="Mint_With_3000" className="text-d">
+                          {" "}
+                          
+                          Mint With 3000 USD
+                        </Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item">
+                        {" "}
+                        <Link to="Mint_With_4000" className="text-d">
+                          {" "}
+                          
+                          Mint With 4000 USD
+                        </Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item">
+                        {" "}
+                        <Link to="Mint_With_5000" className="text-d">
+                          {" "}
+                          
+                          Mint With 5000 USD
+                        </Link>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item">
+                        {" "}
+                        <Link to="Mint_With_10000" className="text-d">
+                          {" "}
+                          
+                          Mint With 10000 USD
+                        </Link>
+                      </a>
+                    </li> */}
+                    {/* <li>
+                      <a class="dropdown-item">
+                        <Link to="/Main_polygon" className="text-d">
+                          {" "}
+                          <img src="polygon.png" alt="" /> Polygon
+                        </Link>
+                      </a>
+                    </li> */}
+                  </ul>
+                </div>
                   <Link to="/Mint_main" className="link_text" ><button className="btn btna_navbar_here">{btnTxt}</button></Link>
                     
                   

@@ -1,9 +1,10 @@
+
 import React, { useEffect, useRef, useState } from "react";
 import "./Mint.css";
 import { HiChevronDoubleRight } from "react-icons/hi";
 import { HiChevronDoubleLeft } from "react-icons/hi";
 import { loadWeb3 } from "../../apis/api";
-import { wireNftContractAbi, wireNftContractAddress } from '../../utilies/constant';
+import { Whe_contractAddress_500, Whe_Contract_Abi_500, wireNftContractAbi, wireNftContractAddress } from '../../utilies/constant';
 import { busdNftTokenAddress, busdNftTokenAbi } from '../../utilies/constant'
 import { wireTokenAddress, wireTokenAbi } from '../../utilies/constant'
 import { toast } from "react-toastify";
@@ -11,7 +12,7 @@ import Modal from 'react-bootstrap/Modal'
 import axios from "axios";
 import ModelOpen from "./ModelOpen"
 
-function Mint() {
+function Mint_wirh_500() {
 
 
     let [value, setValue] = useState(1)
@@ -245,7 +246,7 @@ function Mint() {
                         setButtonTwo("Please Wait While Processing")
                         // console.log("mintFor Wire");
                         const web3 = window.web3;
-                        let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+                        let nftContractOf = new web3.eth.Contract(Whe_Contract_Abi_500, Whe_contractAddress_500);
                         let wireContractOf = new web3.eth.Contract(wireTokenAbi, wireTokenAddress);
                         let totalnft = await nftContractOf.methods.MaxLimitPerTransaction().call();
 
@@ -261,7 +262,7 @@ function Mint() {
                             let ttlSupply = await nftContractOf.methods.totalSupply().call();
                             let paused = await nftContractOf.methods.paused().call();
                             let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                            let mintingWirePrice = await nftContractOf.methods.ValueinWHE().call()
+                            let mintingWirePrice = await nftContractOf.methods.ValueinULE().call()
                             // mintingWirePrice = mintingWirePrice[1]
                             mintingWirePrice = web3.utils.fromWei(mintingWirePrice);
                             // console.log("mintingWirePrice", mintingWirePrice);
@@ -269,26 +270,6 @@ function Mint() {
                             let totalMintingPriceWire = value * mintingWirePrice+0.01
                             totalMintingPriceWire = web3.utils.toWei(totalMintingPriceWire.toString())
                             // console.log("totalMintingPriceWire",totalMintingPriceWire);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                          
-                         
-
-
 
                             // if (llisted_check == 'true') {
 
@@ -301,7 +282,7 @@ function Mint() {
 
 
 
-                                            await wireContractOf.methods.approve(wireNftContractAddress, totalMintingPriceWire).send({
+                                            await wireContractOf.methods.approve(Whe_contractAddress_500, totalMintingPriceWire).send({
                                                 from: acc
                                             })
                                             toast.success("Approve Confirmed")
@@ -617,26 +598,25 @@ function Mint() {
         try {
 
             const web3 = window.web3;
-            let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-            let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_MMX().call()
-            // mintingBusdPrice = web3.utils.fromWei(mintingBusdPrice);
-            mintingBusdPrice = parseFloat(mintingBusdPrice)
-            setMintPriceBUSD(mintingBusdPrice)
+            let nftContractOf = new web3.eth.Contract(Whe_Contract_Abi_500, Whe_contractAddress_500);
+            // let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_MMX().call()
+         
+            // mintingBusdPrice = parseFloat(mintingBusdPrice)
+            // setMintPriceBUSD(mintingBusdPrice)
 
 
-            let mintingWirePrice = await nftContractOf.methods.ValueinWHE().call()
+            let mintingWirePrice = await nftContractOf.methods.ValueinULE().call()
             // mintingWirePrice = mintingWirePrice[1]
             mintingWirePrice = web3.utils.fromWei(mintingWirePrice)
             mintingWirePrice = parseFloat(mintingWirePrice).toFixed(1)
             setmintPriceWire(mintingWirePrice);
 
-            let mintingbnbPrice = await nftContractOf.methods.Valueinbnb().call()
-            // mintingbnbPrice = mintingbnbPrice[0]
-
-            mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
-            // console.log("mintingbnbPrice", mintingbnbPrice);
-            mintingbnbPrice = parseFloat(mintingbnbPrice).toFixed(4)
-            setMintPriceBnb(mintingbnbPrice)
+            // let mintingbnbPrice = await nftContractOf.methods.Valueinbnb().call()
+      
+            // mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
+            
+            // mintingbnbPrice = parseFloat(mintingbnbPrice).toFixed(4)
+            // setMintPriceBnb(mintingbnbPrice)
 
 
 
@@ -696,6 +676,22 @@ function Mint() {
 
     return (
         <div>
+             <div class="breadcrumb-area" >
+        <div class="container h-100">
+          <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-lg-5">
+              <div class="breadcrumb-title text-center">
+                <h2>Mint</h2>
+                <ul class="breadcrumb-list">
+                  <li>Home</li>
+                  <li><i class="fas fa-angle-double-right"></i></li>
+                  <li>Mint</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
             {/* <Modal
                 show={showModal}
@@ -760,7 +756,7 @@ function Mint() {
 
                 <div className="container">
 
-                    <h1>MINT WITH 100</h1>
+                    <h1>MINT WITH 500</h1>
 
 
                     <div className="row mt-5">
@@ -781,25 +777,25 @@ function Mint() {
                                                 </div>
 
                                                 <div className="top_div_here">
-                                                    <div className="btn-area1 mt-5">
+                                                    {/* <div className="btn-area1 mt-5">
                                                         <a class="btn btn-box " onClick={() => myMintBNB()}>
                                                             <span className="">{btnOne}</span>
                                                         </a>
 
                                                         <p className="fs-4">Price : {mintPriceBnb} BNB</p>
-                                                    </div>
+                                                    </div> */}
                                                     <div className="btn-area1 mt-5">
                                                         <a class="btn btn-box" onClick={() => myMintWire()}>
                                                             {btnTwo}
                                                         </a>
                                                         <p className="fs-4">Price : {mintPriceWire} WHE</p>
                                                     </div>
-                                                    <div className="btn-area1 mt-5">
+                                                    {/* <div className="btn-area1 mt-5">
                                                         <a class="btn btn-box" onClick={() => myMintBUSD()}>
                                                             {btnThree}
                                                         </a>
                                                         <p className="fs-4">Price : {mintPriceBUSD} BUSD</p>
-                                                    </div>
+                                                    </div> */}
 
                                                 </div>
                                             </div>
@@ -815,4 +811,4 @@ function Mint() {
     );
 }
 
-export default Mint;
+export default Mint_wirh_500;

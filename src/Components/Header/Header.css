@@ -30,7 +30,8 @@
 .btna_navbar_here{
     padding: 6px 15px 8px 15px !important;
     border: 2px solid rgb(253,86,42) !important;
-    border-radius: 2rem !important;
+    border-radius: 10px !important;
+
     color: white !important;
     font-size: 1.3rem !important;
     margin-left: 1rem;
@@ -56,7 +57,8 @@
 
     .btna_navbar_here{
         border: 2px solid rgb(253,86,42) !important;
-        border-radius: 2rem !important;
+        border-radius: 10px !important;
+
         color: white !important;
         font-size: 1.7rem !important;
         width: 70vw;
@@ -83,7 +85,8 @@
     .btna_navbar_here{
         /* padding: 8px 5px 10px 2px !important; */
         border: 2px solid rgb(253,86,42) !important;
-        border-radius: 2rem !important;
+        border-radius: 10px !important;
+
         color: white !important;
         font-size: 1.7rem !important;
         width: 30vw;
@@ -97,4 +100,31 @@
 
 .link_text{
     text-decoration: none;
+}
+.text_style{
+    text-decoration: none;
+
+}
+
+.select_main{
+    /* background-color: rgb(253,86,42) !important; */
+    background-color: transparent !important;
+    border: 2px solid  rgb(253,86,42) !important;
+    font-size: 1.3rem !important;
+    border-radius: 10px !important;
+    padding: 6px 15px 8px 15px !important;
+
+
+}
+.dropdown-menu{
+    background-color: black !important;
+    color: #fff !important;
+}
+.dropdown-menu li a{
+    color: #fff !important;
+
+}
+.dropdown-menu li:hover a{
+    color: rgb(253,86,42) !important;
+
 }

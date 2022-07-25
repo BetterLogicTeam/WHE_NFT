@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import { loadWeb3 } from "../../apis/api";
-import { wireNftContractAbi, wireNftContractAddress } from "../../utilies/constant";
+import { Whe_contractAddress_500, Whe_Contract_Abi_500, wireNftContractAbi, wireNftContractAddress } from "../../utilies/constant";
 import "./Front4.css";
 
 export default function Front4() {
@@ -84,15 +84,16 @@ export default function Front4() {
     else {
       const web3 = window.web3;
       let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+      let nftContractOf_500 = new web3.eth.Contract(Whe_Contract_Abi_500, Whe_contractAddress_500);
+
       let simplleArray = [];
       let walletOfOwner = await nftContractOf.methods.walletOfOwner(acc).call()
-      // walletOfOwner=walletOfOwner[2];
-
       let walletLength = walletOfOwner.length
       setMyWalletLength(walletLength)
       console.log("walletOfOwner", walletOfOwner);
+      console.log("walletLength",walletLength);
       for (let i =0; i<walletLength; i++) {
-        console.log("i",i);
+ 
         
         try {
           let res = await axios.get(`https://gateway.pinata.cloud/ipfs/QmaqEZtE3uV69fprJiieWPq23zWwkgas8wEgMZ8iRG7asC/${walletOfOwner[i]}.png`)
@@ -100,6 +101,28 @@ export default function Front4() {
           let imageUrl = res.config.url  ;
           console.log("check",res);
           let dna = walletOfOwner[i]
+          simplleArray = [...simplleArray, { imageUrl: imageUrl, num: dna }]
+          setImageArray(simplleArray);
+        } catch (e) {
+          console.log("Error while Fetching Api", e)
+        }
+      }
+
+
+      let walletOfOwner_500 = await nftContractOf_500.methods.walletOfOwner(acc).call()
+      let walletLength_500 = walletOfOwner.length
+      setMyWalletLength(walletLength)
+      console.log("walletOfOwner", walletOfOwner);
+      console.log("walletLength",walletLength);
+      for (let i =0; i<walletLength_500; i++) {
+       
+        
+        try {
+          let res = await axios.get(`https://gateway.pinata.cloud/ipfs/QmaqEZtE3uV69fprJiieWPq23zWwkgas8wEgMZ8iRG7asC/${walletOfOwner_500[i]}.png`)
+          // let res = await axios.get(`/config/${walletOfOwner[i]}.json`)
+          let imageUrl = res.config.url  ;
+          // console.log("check",res);
+          let dna = walletOfOwner_500[i]
           simplleArray = [...simplleArray, { imageUrl: imageUrl, num: dna }]
           setImageArray(simplleArray);
         } catch (e) {
@@ -125,7 +148,7 @@ export default function Front4() {
     allImagesNfts()
     getAccount();
 
-  }, [imageArray]);
+  }, []);
   return (
     <div>
 
