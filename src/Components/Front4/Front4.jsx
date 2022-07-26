@@ -113,7 +113,7 @@ export default function Front4() {
 
 
       let walletOfOwner_500 = await nftContractOf_500.methods.walletOfOwner(acc).call()
-      let Price500=await nftContractOf.methods.MinitngPricein_token().call()
+      let Price500=await walletOfOwner_500.methods.MinitngPricein_token().call()
 
       let walletLength_500 = walletOfOwner_500.length
       setMyWalletLength(walletLength)
