@@ -238,10 +238,10 @@ function Mint_wirh_500() {
             try {
                 // console.log("inputdatahere", inputdatahere);
 
-                let res = await axios.get(`https://whenftapi.herokuapp.com/checkuser?id=${inputdatahere}`)
+                // let res = await axios.get(`https://whenftapi.herokuapp.com/checkuser?id=${inputdatahere}`)
                 // console.log("resdatahere", res.data.data);
-                res = res.data.data;
-                if (res == 1) {
+                // res = res.data.data;
+                // if (res == 1) {
                     try {
                         setButtonTwo("Please Wait While Processing")
                         // console.log("mintFor Wire");
@@ -385,17 +385,17 @@ function Mint_wirh_500() {
                         setButtonTwo("Mint With WHE")
 
                     }
-                } else {
-                    toast.error("User Is Not Exists")
-                    setinputdatahere(" ")
+                // } else {
+                //     toast.error("User Is Not Exists")
+                //     setinputdatahere(" ")
 
 
-                }
+                // }
 
 
             } catch (e) {
-                console.log("User Is Not Exists", e);
-                toast.error("User Is Not Exists")
+                console.log("Error while minting", e);
+                
                 setinputdatahere(" ")
 
 
