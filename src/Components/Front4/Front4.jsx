@@ -110,9 +110,9 @@ export default function Front4() {
 
 
       let walletOfOwner_500 = await nftContractOf_500.methods.walletOfOwner(acc).call()
-      let walletLength_500 = walletOfOwner.length
+      let walletLength_500 = walletOfOwner_500.length
       setMyWalletLength(walletLength)
-      // console.log("walletOfOwner_500", walletOfOwner_500);
+      console.log("walletOfOwner_500", walletOfOwner_500);
       console.log("walletLength_500",walletLength_500);
       for (let i =0; i<walletLength_500; i++) {
         try {
