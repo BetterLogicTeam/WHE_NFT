@@ -90,7 +90,7 @@ export default function Front4() {
       let walletOfOwner = await nftContractOf.methods.walletOfOwner(acc).call()
       let walletLength = walletOfOwner.length
       setMyWalletLength(walletLength)
-      console.log("walletOfOwner", walletOfOwner);
+      // console.log("walletOfOwner", walletOfOwner);
       console.log("walletLength",walletLength);
       for (let i =0; i<walletLength; i++) {
  
@@ -99,7 +99,7 @@ export default function Front4() {
           let res = await axios.get(`https://gateway.pinata.cloud/ipfs/QmaqEZtE3uV69fprJiieWPq23zWwkgas8wEgMZ8iRG7asC/${walletOfOwner[i]}.png`)
           // let res = await axios.get(`/config/${walletOfOwner[i]}.json`)
           let imageUrl = res.config.url  ;
-          console.log("check",res);
+          // console.log("check",res);
           let dna = walletOfOwner[i]
           simplleArray = [...simplleArray, { imageUrl: imageUrl, num: dna }]
           setImageArray(simplleArray);
@@ -112,13 +112,11 @@ export default function Front4() {
       let walletOfOwner_500 = await nftContractOf_500.methods.walletOfOwner(acc).call()
       let walletLength_500 = walletOfOwner.length
       setMyWalletLength(walletLength)
-      console.log("walletOfOwner", walletOfOwner);
-      console.log("walletLength",walletLength);
+      // console.log("walletOfOwner_500", walletOfOwner_500);
+      console.log("walletLength_500",walletLength_500);
       for (let i =0; i<walletLength_500; i++) {
-       
-        
         try {
-          let res = await axios.get(`https://gateway.pinata.cloud/ipfs/QmaqEZtE3uV69fprJiieWPq23zWwkgas8wEgMZ8iRG7asC/${walletOfOwner_500[i]}.png`)
+          let res = await axios.get(`https://whenft.mypinata.cloud/ipfs/QmdKjSydMsQh3PYdb4kJC82zj8iSKRULrRLy5fXLoBbYWa/${[i]}.png`)
           // let res = await axios.get(`/config/${walletOfOwner[i]}.json`)
           let imageUrl = res.config.url  ;
           // console.log("check",res);
@@ -126,7 +124,7 @@ export default function Front4() {
           simplleArray = [...simplleArray, { imageUrl: imageUrl, num: dna }]
           setImageArray(simplleArray);
         } catch (e) {
-          console.log("Error while Fetching Api", e)
+          console.log("Error while Fetching Api 500", e)
         }
       }
       let ttlPage = parseInt(walletLength) / 6;
