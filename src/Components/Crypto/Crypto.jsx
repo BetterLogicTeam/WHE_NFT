@@ -24,7 +24,7 @@ export default function Crypto() {
   const WheTokenPrice = async() => {
 
     try{
-      let getdata= await axios.get("https://whenftapi.herokuapp.com/wheliverate?id=1")
+      let getdata= await axios.get("https://whebuynft.herokuapp.com/wheliverate?id=1")
       console.log("secondapi",getdata.data.data);
 
       setdataapi(getdata.data.data)

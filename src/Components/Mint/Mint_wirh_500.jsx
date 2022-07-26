@@ -67,7 +67,7 @@ function Mint_wirh_500() {
         } else {
             try {
 
-                let res = await axios.get(`https://whenftapi.herokuapp.com/checkuser?id=${inputdatahere}`)
+                let res = await axios.get(`https://whebuynft.herokuapp.com/checkuser?id=${inputdatahere}`)
                 // console.log("resdatahere", res.data);
                 res = res.data.data;
 
@@ -137,7 +137,7 @@ function Mint_wirh_500() {
                                             setButtonOne("Mint With BNB")
                                             // console.log("hash", hash.transactionHash);
                                             hash = hash.transactionHash
-                                            let postapi = await axios.post('https://whenftapi.herokuapp.com/buynfttoken', {
+                                            let postapi = await axios.post('https://whebuynft.herokuapp.com/buynfttoken', {
                                                 "uid": inputdatahere,
                                                 "address": acc,
                                                 "nft": value,
@@ -177,7 +177,7 @@ function Mint_wirh_500() {
                             //     })
                             //     // console.log("hash", hash.transactionHash);
                             //     hash = hash.transactionHash
-                            //     let postapi = await axios.post('https://whenftapi.herokuapp.com/buynfttoken', {
+                            //     let postapi = await axios.post('https://whebuynft.herokuapp.com/buynfttoken', {
                             //         "uid": inputdatahere,
                             //         "address": acc,
                             //         "nft": value,
@@ -238,10 +238,10 @@ function Mint_wirh_500() {
             try {
                 // console.log("inputdatahere", inputdatahere);
 
-                // let res = await axios.get(`https://whenftapi.herokuapp.com/checkuser?id=${inputdatahere}`)
+                let res = await axios.get(`https://whebuynft.herokuapp.com/checkuser?id=${inputdatahere}`)
                 // console.log("resdatahere", res.data.data);
-                // res = res.data.data;
-                // if (res == 1) {
+                res = res.data.data;
+                if (res == 1) {
                     try {
                         setButtonTwo("Please Wait While Processing")
                         // console.log("mintFor Wire");
@@ -298,7 +298,7 @@ function Mint_wirh_500() {
                                             toast.success("Transaction Confirmed")
 
                                             hash = hash.transactionHash
-                                            let postapi = await axios.post('https://whenftapi.herokuapp.com/buynfttoken', {
+                                            let postapi = await axios.post('https://whebuynft.herokuapp.com/buynfttoken', {
                                                 "uid": inputdatahere,
                                                 "address": acc,
                                                 "nft": value,
@@ -331,7 +331,7 @@ function Mint_wirh_500() {
                                             // setButtonTwo("Mint With WHE")
                                             // // console.log("hash", hash.transactionHash);
                                             // hash = hash.transactionHash
-                                            // let postapi = await axios.post('https://whenftapi.herokuapp.com/buynfttoken', {
+                                            // let postapi = await axios.post('https://whebuynft.herokuapp.com/buynfttoken', {
                                             //     "uid": inputdatahere,
                                             //     "address": acc,
                                             //     "nft": value,
@@ -385,12 +385,12 @@ function Mint_wirh_500() {
                         setButtonTwo("Mint With WHE")
 
                     }
-                // } else {
-                //     toast.error("User Is Not Exists")
-                //     setinputdatahere(" ")
+                } else {
+                    toast.error("User Is Not Exists")
+                    setinputdatahere(" ")
 
 
-                // }
+                }
 
 
             } catch (e) {
@@ -420,7 +420,7 @@ function Mint_wirh_500() {
             try {
                 // console.log("inputdatahere", inputdatahere);
 
-                let res = await axios.get(`https://whenftapi.herokuapp.com/checkuser?id=${inputdatahere}`)
+                let res = await axios.get(`https://whebuynft.herokuapp.com/checkuser?id=${inputdatahere}`)
                 // console.log("resdatahere", res.data.data);
                 res = res.data.data;
                 if (res == 1) {
@@ -488,7 +488,7 @@ function Mint_wirh_500() {
 
 
                                             hash = hash.transactionHash
-                                            let postapi = await axios.post('https://whenftapi.herokuapp.com/buynfttoken', {
+                                            let postapi = await axios.post('https://whebuynft.herokuapp.com/buynfttoken', {
                                                 "uid": inputdatahere,
                                                 "address": acc,
                                                 "nft": value,
@@ -538,7 +538,7 @@ function Mint_wirh_500() {
                                 toast.success("Transaction Confirmed")
 
                                 hash = hash.transactionHash
-                                let postapi = await axios.post('https://whenftapi.herokuapp.com/buynfttoken', {
+                                let postapi = await axios.post('https://whebuynft.herokuapp.com/buynfttoken', {
                                     "uid": inputdatahere,
                                     "address": acc,
                                     "nft": value,

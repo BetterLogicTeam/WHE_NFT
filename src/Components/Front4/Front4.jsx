@@ -88,6 +88,8 @@ export default function Front4() {
 
       let simplleArray = [];
       let walletOfOwner = await nftContractOf.methods.walletOfOwner(acc).call()
+      let Price100=await nftContractOf.methods.MinitngPricein_MMX().call()
+
       let walletLength = walletOfOwner.length
       setMyWalletLength(walletLength)
       // console.log("walletOfOwner", walletOfOwner);
@@ -100,8 +102,9 @@ export default function Front4() {
           // let res = await axios.get(`/config/${walletOfOwner[i]}.json`)
           let imageUrl = res.config.url  ;
           // console.log("check",res);
-          let dna = walletOfOwner[i]
-          simplleArray = [...simplleArray, { imageUrl: imageUrl, num: dna }]
+          let tokenid=walletOfOwner[i] 
+          let dna = Price100
+          simplleArray = [...simplleArray, { imageUrl: imageUrl, num: dna,tokenid:tokenid }]
           setImageArray(simplleArray);
         } catch (e) {
           console.log("Error while Fetching Api", e)
@@ -110,9 +113,11 @@ export default function Front4() {
 
 
       let walletOfOwner_500 = await nftContractOf_500.methods.walletOfOwner(acc).call()
+      let Price500=await nftContractOf.methods.MinitngPricein_token().call()
+
       let walletLength_500 = walletOfOwner_500.length
       setMyWalletLength(walletLength)
-      console.log("walletOfOwner_500", walletOfOwner_500);
+      // console.log("walletOfOwner_500", walletOfOwner_500);
       console.log("walletLength_500",walletLength_500);
       for (let i =0; i<walletLength_500; i++) {
         try {
@@ -120,8 +125,11 @@ export default function Front4() {
           // let res = await axios.get(`/config/${walletOfOwner[i]}.json`)
           let imageUrl = res.config.url  ;
           // console.log("check",res);
-          let dna = walletOfOwner_500[i]
-          simplleArray = [...simplleArray, { imageUrl: imageUrl, num: dna }]
+          
+          let tokenid=walletOfOwner_500[i] 
+          let dna = Price500
+          simplleArray = [...simplleArray, { imageUrl: imageUrl, num: dna,tokenid:tokenid }]
+
           setImageArray(simplleArray);
         } catch (e) {
           console.log("Error while Fetching Api 500", e)
@@ -176,7 +184,7 @@ export default function Front4() {
                         </div>
 
                         <div class="collection-text home-2 text-center">
-                          <a href="#">WHE NFT {items.num} </a>
+                          <a href="#">WHE NFT ID:{items.tokenid}, {items.num} USD </a>
                         
                         </div>
                       </div>
