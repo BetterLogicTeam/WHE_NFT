@@ -292,7 +292,7 @@ function Mint_wirh_500() {
                                             let data_value = value
 
 
-                                            let hash = await nftContractOf.methods.mint_with_MMX(data_value, totalMintingPriceWire).send({
+                                            let hash = await nftContractOf.methods.mint_with_token(data_value, totalMintingPriceWire).send({
                                                 from: acc,
                                             })
                                             toast.success("Transaction Confirmed")
