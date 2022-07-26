@@ -116,7 +116,7 @@ export default function Front4() {
       console.log("walletLength_500",walletLength_500);
       for (let i =0; i<walletLength_500; i++) {
         try {
-          let res = await axios.get(`https://whenft.mypinata.cloud/ipfs/QmdKjSydMsQh3PYdb4kJC82zj8iSKRULrRLy5fXLoBbYWa/${[i]}.png`)
+          let res = await axios.get(`https://whenft.mypinata.cloud/ipfs/QmdKjSydMsQh3PYdb4kJC82zj8iSKRULrRLy5fXLoBbYWa/${walletOfOwner_500[i]}.png`)
           // let res = await axios.get(`/config/${walletOfOwner[i]}.json`)
           let imageUrl = res.config.url  ;
           // console.log("check",res);
