@@ -67,17 +67,17 @@ function Mint_wirh_500() {
         } else {
             try {
 
-                let res = await axios.get(`https://whebuynft.herokuapp.com/checkuser?id=${inputdatahere}`)
-                // console.log("resdatahere", res.data);
-                res = res.data.data;
+                // let res = await axios.get(`https://whebuynft.herokuapp.com/checkuser?id=${inputdatahere}`)
+                // // console.log("resdatahere", res.data);
+                // res = res.data.data;
 
-                if (res == 1) {
+                // if (res == 1) {
                     try {
 
                         setButtonOne("Please Wait While Processing")
                         // console.log("mintFor BNB");
                         const web3 = window.web3;
-                        let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+                        let nftContractOf = new web3.eth.Contract(Whe_Contract_Abi_500, Whe_contractAddress_500);
 
 
 
@@ -103,15 +103,8 @@ function Mint_wirh_500() {
 
                             // setMintPriceBnb(mintingbnbPrice)
                             let totalMintingPriceBNB = value * mintingbnbPrice
-                            let getdata = await axios.get("https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT")
-                            // console.log("data_chack_here", getdata.data.price);
-                            getdata = getdata.data.price
-                            // console.log("Minting_totalMintingPriceBNB= ", totalMintingPriceBNB);
-                            let usid = totalMintingPriceBNB * getdata
-                            // console.log("usid", usid);
-                            // console.log("ttlSupply", maxLimitprTransaction);
-
-                            // console.log("mintingbnbPrice", mintingbnbPrice);
+                           
+                       
 
                             let llisted_check = await nftContractOf.methods.iswhitelist(acc).call()
                             // console.log("iswhitelist", llisted_check);
@@ -128,7 +121,7 @@ function Mint_wirh_500() {
 
                                             // let BusdPrice = await nftContractOf.methods.WhitelistMintingPricein_MATIC().call();
                                             // BusdPrice = BusdPrice * value;
-                                            let hash = await nftContractOf.methods.mint_with_MATIC(value).send({
+                                            let hash = await nftContractOf.methods.mint_with_BNB(value).send({
                                                 from: acc,
                                                 value: totalMintingPriceBNB.toString()
 
@@ -205,12 +198,12 @@ function Mint_wirh_500() {
                         setButtonOne("Mint With BNB")
 
                     }
-                } else {
-                    toast.error("User Is Not Exists")
-                    setinputdatahere(" ")
+                // } else {
+                //     toast.error("User Is Not Exists")
+                //     setinputdatahere(" ")
 
 
-                }
+                // }
 
 
             } catch (e) {
@@ -420,15 +413,15 @@ function Mint_wirh_500() {
             try {
                 // console.log("inputdatahere", inputdatahere);
 
-                let res = await axios.get(`https://whebuynft.herokuapp.com/checkuser?id=${inputdatahere}`)
-                // console.log("resdatahere", res.data.data);
-                res = res.data.data;
-                if (res == 1) {
+                // let res = await axios.get(`https://whebuynft.herokuapp.com/checkuser?id=${inputdatahere}`)
+                // // console.log("resdatahere", res.data.data);
+                // res = res.data.data;
+                // if (res == 1) {
                     try {
                         setButtonThree("Please Wait While Processing")
                         // console.log("mintFor BUSD");
                         const web3 = window.web3;
-                        let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+                        let nftContractOf = new web3.eth.Contract(Whe_Contract_Abi_500, Whe_contractAddress_500);
                         let busdContractOf = new web3.eth.Contract(busdNftTokenAbi, busdNftTokenAddress);
                         // let userBusdBalance = await busdContractOf.methods.balanceOf(acc).call();
                         // console.log("maxSupply",busdContractOf);
@@ -444,12 +437,12 @@ function Mint_wirh_500() {
                             let ttlSupply = await nftContractOf.methods.totalSupply().call();
                             let paused = await nftContractOf.methods.paused().call();
                             let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                            let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_MMX().call()
+                            let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_token().call()
 
                             mintingBusdPrice = web3.utils.toWei(mintingBusdPrice);
                             mintingBusdPrice = parseFloat(mintingBusdPrice)
                             // setMintPriceBUSD(mintingBusdPrice)
-                            let totalMintingPriceBusd = value * mintingBusdPrice
+                            let totalMintingPriceBusd = value * mintingBusdPrice+0.01
                             // console.log("maxSupply", maxSupply);
                             // console.log("ttlSupply", maxLimitprTransaction);
 
@@ -493,7 +486,7 @@ function Mint_wirh_500() {
                                                 "address": acc,
                                                 "nft": value,
                                                 "token": totalMintingPriceBusd,
-                                                "txn": "vgd54"
+                                                "txn": hash
                                             })
 
                                             setButtonThree("Mint With Busd")
@@ -543,7 +536,7 @@ function Mint_wirh_500() {
                                     "address": acc,
                                     "nft": value,
                                     "token": totalMintingPriceBusd,
-                                    "txn": "xsdd44"
+                                    "txn": hash
                                 })
 
                                 // console.log("postapi", postapi);
@@ -566,16 +559,17 @@ function Mint_wirh_500() {
                     }
 
 
-                } else {
-                    toast.error("User Is Not Exists")
-                    setinputdatahere(" ")
+                // } else {
+                //     toast.error("User Is Not Exists")
+                //     setinputdatahere(" ")
 
 
-                }
+                // }
 
             } catch (e) {
-                console.log("User Is Not Exists", e);
-                toast.error("Error While Fatching Get API")
+                console.log("Transaction failed BUSD", e);
+                toast.error("Transaction failed BUSD")
+
             }
 
 
@@ -599,10 +593,10 @@ function Mint_wirh_500() {
 
             const web3 = window.web3;
             let nftContractOf = new web3.eth.Contract(Whe_Contract_Abi_500, Whe_contractAddress_500);
-            // let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_MMX().call()
+            let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_token().call()
          
-            // mintingBusdPrice = parseFloat(mintingBusdPrice)
-            // setMintPriceBUSD(mintingBusdPrice)
+            mintingBusdPrice = parseFloat(mintingBusdPrice)
+            setMintPriceBUSD(mintingBusdPrice)
 
 
             let mintingWirePrice = await nftContractOf.methods.ValueinULE().call()
@@ -611,12 +605,12 @@ function Mint_wirh_500() {
             mintingWirePrice = parseFloat(mintingWirePrice).toFixed(1)
             setmintPriceWire(mintingWirePrice);
 
-            // let mintingbnbPrice = await nftContractOf.methods.Valueinbnb().call()
+            let mintingbnbPrice = await nftContractOf.methods.Valueinbnb().call()
       
-            // mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
+            mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
             
-            // mintingbnbPrice = parseFloat(mintingbnbPrice).toFixed(4)
-            // setMintPriceBnb(mintingbnbPrice)
+            mintingbnbPrice = parseFloat(mintingbnbPrice).toFixed(4)
+            setMintPriceBnb(mintingbnbPrice)
 
 
 
@@ -777,25 +771,25 @@ function Mint_wirh_500() {
                                                 </div>
 
                                                 <div className="top_div_here">
-                                                    {/* <div className="btn-area1 mt-5">
+                                                    <div className="btn-area1 mt-5">
                                                         <a class="btn btn-box " onClick={() => myMintBNB()}>
                                                             <span className="">{btnOne}</span>
                                                         </a>
 
                                                         <p className="fs-4">Price : {mintPriceBnb} BNB</p>
-                                                    </div> */}
-                                                    <div className="btn-area1 mt-5">
+                                                    </div>
+                                                    {/* <div className="btn-area1 mt-5">
                                                         <a class="btn btn-box" onClick={() => myMintWire()}>
                                                             {btnTwo}
                                                         </a>
                                                         <p className="fs-4">Price : {mintPriceWire} WHE</p>
-                                                    </div>
-                                                    {/* <div className="btn-area1 mt-5">
+                                                    </div> */}
+                                                    <div className="btn-area1 mt-5">
                                                         <a class="btn btn-box" onClick={() => myMintBUSD()}>
                                                             {btnThree}
                                                         </a>
                                                         <p className="fs-4">Price : {mintPriceBUSD} BUSD</p>
-                                                    </div> */}
+                                                    </div>
 
                                                 </div>
                                             </div>

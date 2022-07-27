@@ -896,7 +896,7 @@ export const wireNftContractAbi = [{
     "type": "function"
 }]
 
-export const Whe_contractAddress_500 = "0xDc8466724E2Fd323Ed332FE471D24d58A731d526"
+export const Whe_contractAddress_500 = "0x1f3E28876b883ef7aEEFc0a820D03604E51c6900"
 export const Whe_Contract_Abi_500 = [{
     "inputs": [{
         "internalType": "string",
