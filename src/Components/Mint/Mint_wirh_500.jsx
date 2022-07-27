@@ -472,6 +472,7 @@ function Mint_wirh_500() {
                                             await busdContractOf.methods.approve(Whe_contractAddress_500, b.toString()).send({
                                                 from: acc
                                             })
+                                            console.log("Whitelist");
                                             setButtonThree("Please Wait For Second Confirmation")
                                             toast.success("Transaction Confirmed")
                                             let hash = await nftContractOf.methods.mint_with_BUSD(value, b.toString()).send({
@@ -524,6 +525,7 @@ function Mint_wirh_500() {
                                 await busdContractOf.methods.approve(Whe_contractAddress_500, (totalMintingPriceBusd).toString()).send({
                                     from: acc
                                 })
+                                console.log("Whitelist_second");
 
                                 let hash = await nftContractOf.methods.mint_with_BUSD(value, totalMintingPriceBusd).send({
                                     from: acc,
