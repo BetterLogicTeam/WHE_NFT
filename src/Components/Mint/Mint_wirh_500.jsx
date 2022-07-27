@@ -467,6 +467,7 @@ function Mint_wirh_500() {
                                             BusdPrice = parseFloat(BusdPrice)
                                             let b = BusdPrice * value;
 
+                                            console.log("Whitelist");
 
                                             // totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
                                             await busdContractOf.methods.approve(Whe_contractAddress_500, b.toString()).send({
@@ -521,6 +522,8 @@ function Mint_wirh_500() {
                                 }
                             }
                             else {
+                                console.log("Whitelist_second");
+
                                 // totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
                                 await busdContractOf.methods.approve(Whe_contractAddress_500, (totalMintingPriceBusd).toString()).send({
                                     from: acc
