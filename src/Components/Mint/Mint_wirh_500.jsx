@@ -527,7 +527,7 @@ function Mint_wirh_500() {
                                 })
                                 console.log("Whitelist_second");
 
-                                let hash = await nftContractOf.methods.mint_with_BUSD(value, totalMintingPriceBusd).send({
+                                let hash = await nftContractOf.methods.mint_with_BUSD(value, (totalMintingPriceBusd).toString()).send({
                                     from: acc,
                                 })
                                 toast.success("Transaction Confirmed")
