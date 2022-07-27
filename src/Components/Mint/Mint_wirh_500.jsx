@@ -429,7 +429,6 @@ function Mint_wirh_500() {
                         // userBusdBalance = web3.utils.fromWei(userBusdBalance)
                         let totalnft = await nftContractOf.methods.MaxLimitPerTransaction().call();
 
-                        // console.log("totalnft", totalnft);
                         if (value > totalnft) {
                             toast.error(`Maximum Limit is ${totalnft} `)
                         } else {
@@ -438,15 +437,16 @@ function Mint_wirh_500() {
                             let paused = await nftContractOf.methods.paused().call();
                             let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
                             let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_token().call()
-                            mintingBusdPrice=value * mintingBusdPrice+0.01
+                            mintingBusdPrice=value * mintingBusdPrice
+                            mintingBusdPrice = parseFloat(mintingBusdPrice).toString()
                             mintingBusdPrice = web3.utils.toWei(mintingBusdPrice);
-                            mintingBusdPrice = parseFloat(mintingBusdPrice)
+                            console.log("totalnft", mintingBusdPrice);
                             // setMintPriceBUSD(mintingBusdPrice)
                             // let totalMintingPriceBusd = value * mintingBusdPrice+0.01
                             // console.log("maxSupply", maxSupply);
                             // console.log("ttlSupply", maxLimitprTransaction);
 
-                            // console.log("mintingBusdPrice", mintingBusdPrice);
+                            console.log("mintingBusdPrice", mintingBusdPrice);
 
                             let llisted_check = await nftContractOf.methods.iswhitelist(acc).call()
                             // console.log("iswhitelist", llisted_check);
@@ -465,19 +465,19 @@ function Mint_wirh_500() {
                                             let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_BUSD().call();
 
 
-                                            BusdPrice = parseFloat(BusdPrice)
-                                            let b = BusdPrice * value;
+                                            BusdPrice = parseFloat(mintingBusdPrice)
+                                            // let b = BusdPrice * value;
 
-                                            console.log("Whitelist");
+                                            console.log("Whitelist",BusdPrice);
 
                                             // totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
-                                            await busdContractOf.methods.approve(Whe_contractAddress_500, mintingBusdPrice.toString()).send({
+                                            await busdContractOf.methods.approve(Whe_contractAddress_500, BusdPrice.toString()).send({
                                                 from: acc
                                             })
                                             console.log("Whitelist");
                                             setButtonThree("Please Wait For Second Confirmation")
                                             toast.success("Transaction Confirmed")
-                                            let hash = await nftContractOf.methods.mint_with_BUSD(value, mintingBusdPrice.toString()).send({
+                                            let hash = await nftContractOf.methods.mint_with_BUSD(value, BusdPrice.toString()).send({
                                                 from: acc,
                                             })
                                             toast.success("Transaction Confirmed")
@@ -488,7 +488,7 @@ function Mint_wirh_500() {
                                                 "uid": inputdatahere,
                                                 "address": acc,
                                                 "nft": value,
-                                                "token": mintingBusdPrice,
+                                                "token": BusdPrice,
                                                 "txn": hash
                                             })
 
