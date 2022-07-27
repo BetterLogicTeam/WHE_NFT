@@ -440,13 +440,13 @@ function Mint_wirh_500() {
                             mintingBusdPrice=value * mintingBusdPrice
                             mintingBusdPrice = parseFloat(mintingBusdPrice).toString()
                             mintingBusdPrice = web3.utils.toWei(mintingBusdPrice);
-                            console.log("totalnft", mintingBusdPrice);
+                            // console.log("totalnft", mintingBusdPrice);
                             // setMintPriceBUSD(mintingBusdPrice)
                             // let totalMintingPriceBusd = value * mintingBusdPrice+0.01
                             // console.log("maxSupply", maxSupply);
                             // console.log("ttlSupply", maxLimitprTransaction);
 
-                            console.log("mintingBusdPrice", mintingBusdPrice);
+                            // console.log("mintingBusdPrice", mintingBusdPrice);
 
                             let llisted_check = await nftContractOf.methods.iswhitelist(acc).call()
                             // console.log("iswhitelist", llisted_check);
@@ -468,19 +468,19 @@ function Mint_wirh_500() {
                                             BusdPrice = parseFloat(mintingBusdPrice)
                                             // let b = BusdPrice * value;
 
-                                            console.log("Whitelist",BusdPrice);
+                                            // console.log("Whitelist",BusdPrice);
 
                                             // totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
                                             await busdContractOf.methods.approve(Whe_contractAddress_500, BusdPrice.toString()).send({
                                                 from: acc
                                             })
-                                            console.log("Whitelist");
+                                            // console.log("Whitelist");
                                             setButtonThree("Please Wait For Second Confirmation")
                                             toast.success("Transaction Confirmed")
                                             let hash = await nftContractOf.methods.mint_with_BUSD(value, BusdPrice.toString()).send({
                                                 from: acc,
                                             })
-                                            toast.success("Transaction Confirmed")
+                                            // toast.success("Transaction Confirmed")
 
 
                                             hash = hash.transactionHash
@@ -495,7 +495,7 @@ function Mint_wirh_500() {
                                             setButtonThree("Mint With Busd")
                                             toast.success("Transaction Succefful")
                                             // console.log("postapi", postapi);
-                                            toast.success("Success", postapi.data.data)
+                                            // toast.success("Success", postapi.data.data)
                                             setinputdatahere(" ")
 
 

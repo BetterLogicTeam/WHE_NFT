@@ -788,12 +788,12 @@ function Mint() {
 
                                                         <p className="fs-4">Price : {mintPriceBnb} BNB</p>
                                                     </div>
-                                                    <div className="btn-area1 mt-5">
+                                                    {/* <div className="btn-area1 mt-5">
                                                         <a class="btn btn-box" onClick={() => myMintWire()}>
                                                             {btnTwo}
                                                         </a>
                                                         <p className="fs-4">Price : {mintPriceWire} WHE</p>
-                                                    </div>
+                                                    </div> */}
                                                     <div className="btn-area1 mt-5">
                                                         <a class="btn btn-box" onClick={() => myMintBUSD()}>
                                                             {btnThree}
