@@ -438,11 +438,11 @@ function Mint_wirh_500() {
                             let paused = await nftContractOf.methods.paused().call();
                             let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
                             let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_token().call()
-
+                            mintingBusdPrice=value * mintingBusdPrice+0.01
                             mintingBusdPrice = web3.utils.toWei(mintingBusdPrice);
                             mintingBusdPrice = parseFloat(mintingBusdPrice)
                             // setMintPriceBUSD(mintingBusdPrice)
-                            let totalMintingPriceBusd = value * mintingBusdPrice+0.01
+                            // let totalMintingPriceBusd = value * mintingBusdPrice+0.01
                             // console.log("maxSupply", maxSupply);
                             // console.log("ttlSupply", maxLimitprTransaction);
 
