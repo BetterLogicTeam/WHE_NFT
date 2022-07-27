@@ -452,7 +452,7 @@ function Mint_wirh_500() {
                             // console.log("iswhitelist", llisted_check);
 
 
-                            if (llisted_check == 'true') {
+                            // if (llisted_check == 'true') {
 
 
                                 if (parseInt(ttlSupply) < parseInt(maxSupply)) {
@@ -461,6 +461,7 @@ function Mint_wirh_500() {
                                             // if (parseFloat(userBusdBalance) >= totalMintingPriceBusd) {
                                             // console.log("Minting Value= ", value);
                                             // console.log("Minting totalMintingPriceWire= ", totalMintingPriceBusd);
+                                            
                                             let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_BUSD().call();
 
 
@@ -470,13 +471,13 @@ function Mint_wirh_500() {
                                             console.log("Whitelist");
 
                                             // totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
-                                            await busdContractOf.methods.approve(Whe_contractAddress_500, b.toString()).send({
+                                            await busdContractOf.methods.approve(Whe_contractAddress_500, mintingBusdPrice.toString()).send({
                                                 from: acc
                                             })
                                             console.log("Whitelist");
                                             setButtonThree("Please Wait For Second Confirmation")
                                             toast.success("Transaction Confirmed")
-                                            let hash = await nftContractOf.methods.mint_with_BUSD(value, b.toString()).send({
+                                            let hash = await nftContractOf.methods.mint_with_BUSD(value, mintingBusdPrice.toString()).send({
                                                 from: acc,
                                             })
                                             toast.success("Transaction Confirmed")
@@ -487,7 +488,7 @@ function Mint_wirh_500() {
                                                 "uid": inputdatahere,
                                                 "address": acc,
                                                 "nft": value,
-                                                "token": totalMintingPriceBusd,
+                                                "token": mintingBusdPrice,
                                                 "txn": hash
                                             })
 
@@ -520,38 +521,38 @@ function Mint_wirh_500() {
                                     setButtonThree("Mint With Busd")
 
                                 }
-                            }
-                            else {
-                                console.log("Whitelist_second");
+                            // }
+                            // else {
+                            //     console.log("Whitelist_second");
 
-                                // totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
-                                await busdContractOf.methods.approve(Whe_contractAddress_500, (totalMintingPriceBusd).toString()).send({
-                                    from: acc
-                                })
-                                console.log("Whitelist_second");
+                                
+                            //     await busdContractOf.methods.approve(Whe_contractAddress_500, (totalMintingPriceBusd).toString()).send({
+                            //         from: acc
+                            //     })
+                            //     console.log("Whitelist_second");
 
-                                let hash = await nftContractOf.methods.mint_with_BUSD(value, (totalMintingPriceBusd).toString()).send({
-                                    from: acc,
-                                })
-                                toast.success("Transaction Confirmed")
+                            //     let hash = await nftContractOf.methods.mint_with_BUSD(value, (totalMintingPriceBusd).toString()).send({
+                            //         from: acc,
+                            //     })
+                            //     toast.success("Transaction Confirmed")
 
-                                hash = hash.transactionHash
-                                let postapi = await axios.post('https://whebuynft.herokuapp.com/buynfttoken', {
-                                    "uid": inputdatahere,
-                                    "address": acc,
-                                    "nft": value,
-                                    "token": totalMintingPriceBusd,
-                                    "txn": hash
-                                })
+                            //     hash = hash.transactionHash
+                            //     let postapi = await axios.post('https://whebuynft.herokuapp.com/buynfttoken', {
+                            //         "uid": inputdatahere,
+                            //         "address": acc,
+                            //         "nft": value,
+                            //         "token": totalMintingPriceBusd,
+                            //         "txn": hash
+                            //     })
 
-                                // console.log("postapi", postapi);
-                                toast.success("Success", postapi.data.data)
+                            //     // console.log("postapi", postapi);
+                            //     toast.success("Success", postapi.data.data)
 
-                                setButtonThree("Mint With Busd")
-                                setinputdatahere(" ")
+                            //     setButtonThree("Mint With Busd")
+                            //     setinputdatahere(" ")
 
 
-                            }
+                            // }
                         }
 
 
