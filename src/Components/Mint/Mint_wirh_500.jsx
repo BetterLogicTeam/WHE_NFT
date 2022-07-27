@@ -469,7 +469,7 @@ function Mint_wirh_500() {
 
 
                                             totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
-                                            await busdContractOf.methods.approve(wireNftContractAddress, b).send({
+                                            await busdContractOf.methods.approve(Whe_contractAddress_500, b).send({
                                                 from: acc
                                             })
                                             setButtonThree("Please Wait For Second Confirmation")
@@ -521,7 +521,7 @@ function Mint_wirh_500() {
                             }
                             else {
                                 totalMintingPriceBusd = web3.utils.toWei(totalMintingPriceBusd.toString())
-                                await busdContractOf.methods.approve(wireNftContractAddress, totalMintingPriceBusd).send({
+                                await busdContractOf.methods.approve(Whe_contractAddress_500, totalMintingPriceBusd).send({
                                     from: acc
                                 })
 
