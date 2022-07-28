@@ -423,7 +423,7 @@ function Mint_wirh_500() {
                         const web3 = window.web3;
                         let nftContractOf = new web3.eth.Contract(Whe_Contract_Abi_500, Whe_contractAddress_500);
                         let busdContractOf = new web3.eth.Contract(busdNftTokenAbi, busdNftTokenAddress);
-                        // let userBusdBalance = await busdContractOf.methods.balanceOf(acc).call();
+                        let userBusdBalance = await busdContractOf.methods.balanceOf(acc).call();
                         // console.log("maxSupply",busdContractOf);
 
                         // userBusdBalance = web3.utils.fromWei(userBusdBalance)
@@ -462,10 +462,10 @@ function Mint_wirh_500() {
                                             // console.log("Minting Value= ", value);
                                             // console.log("Minting totalMintingPriceWire= ", totalMintingPriceBusd);
                                             
-                                            let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_BUSD().call();
+                                            // let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_BUSD().call();
 
 
-                                            BusdPrice = parseFloat(mintingBusdPrice)
+                                          let  BusdPrice = parseFloat(mintingBusdPrice)
                                             // let b = BusdPrice * value;
 
                                             // console.log("Whitelist",BusdPrice);
