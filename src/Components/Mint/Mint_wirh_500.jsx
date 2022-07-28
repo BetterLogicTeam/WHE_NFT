@@ -126,9 +126,10 @@ function Mint_wirh_500() {
                                                 value: totalMintingPriceBNB.toString()
 
                                             })
-                                            toast.success("Transaction Confirmed")
                                             setButtonOne("Mint With BNB")
+
                                             // console.log("hash", hash.transactionHash);
+                                            mintingbnbPrice=web3.utils.fromWei((mintingbnbPrice).toString())
                                             hash = hash.transactionHash
                                             let postapi = await axios.post('https://whebuynft.herokuapp.com/buynfttoken', {
                                                 "uid": inputdatahere,
@@ -137,6 +138,7 @@ function Mint_wirh_500() {
                                                 "token": mintingbnbPrice,
                                                 "txn": hash
                                             })
+                                            toast.success("Transaction Confirmed")
 
                                             // console.log("postapi", postapi);
                                             // toast.success(postapi.data.data)
@@ -484,6 +486,7 @@ function Mint_wirh_500() {
 
 
                                             hash = hash.transactionHash
+                                            BusdPrice=web3.utils.fromWei((BusdPrice).toString())
                                             let postapi = await axios.post('https://whebuynft.herokuapp.com/buynfttoken', {
                                                 "uid": inputdatahere,
                                                 "address": acc,
