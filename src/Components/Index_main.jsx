@@ -20,7 +20,7 @@ export default function Index_main() {
       <Front4 />
       <Mint />
       <Crypto />
-      <Road />
+      {/* <Road /> */}
       <Slide />
 
     </div>

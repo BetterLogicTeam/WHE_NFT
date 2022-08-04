@@ -58,9 +58,9 @@ export default function Header() {
                   <Nav.Link className="hzn" href="#benefits">
                      <Link to="/Benefits_main" className="link_text" >Benefits</Link>
                   </Nav.Link>
-                  <Nav.Link className="hzn" href="#roadmap">
+                  {/* <Nav.Link className="hzn" href="#roadmap">
                      <Link to="/Road_main" className="link_text" >Roadmap</Link>
-                  </Nav.Link>
+                  </Nav.Link> */}
 
                   {/* <Link to="/Mint_main" className="link_text" ><button className="btn btna_navbar_here">Mint</button></Link> */}
                   <div class="dropdown ms-2 ">
